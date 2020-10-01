@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="page-holder">
+
+  <div class="container">
+    <!-- HERO SECTION-->
+    <section class="py-5 bg-light mb-5">
+      <div class="container">
+
+        <form action="" method="Post">
+          {% csrf_token %}
+
+          
+
+          
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Username</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="username" placeholder="Username" required>
+          </div>
+
+
+        
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" required>
+          </div>
+
+         
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+       
+      </div>
+
+  </div>
+  
+</div>
+
+
+
+
+{% endblock %}
