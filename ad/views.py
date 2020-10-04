@@ -18,3 +18,11 @@ class CreateAd(CreateView):
   fields = '__all__'
   template_name = 'ads/create.html'
   success_url = reverse_lazy('ads')
+
+
+
+
+
+class AdDetail(DetailView):
+    model = Ad
+    template_name='ads/detial.html'

@@ -10,8 +10,8 @@
     <!-- HERO SECTION-->
     <section class="py-5 bg-light mb-5">
       <div class="container">
-
-        <form action="" method="Post">
+        {% include 'partials/alert.html' %}
+        <form action="{% url 'register' %}" method="Post">
           {% csrf_token %}
 
           <div class="form-group">
