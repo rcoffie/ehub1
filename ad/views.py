@@ -15,9 +15,15 @@ class Home(ListView):
 
 class CreateAd(CreateView):
   model = Ad 
-  fields = '__all__'
+  fields = ('title','location','region','category','condition','price','brand','negotiable','main_photo','photo_1','photo_2','photo_3','description')
   template_name = 'ads/create.html'
   success_url = reverse_lazy('ads')
+
+  def form_valid(self, form):
+    form.instance.seller = self.request.user
+    form.save()
+    return super(CreateAd, self).form_valid(form)
+    
 
 
 
