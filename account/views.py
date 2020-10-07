@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib import messages,auth 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate 
+from django.views.generic import ListView, DeleteView, DetailView, UpdateView, CreateView
+from ad.models import *
 
 # Create your views here.
 
@@ -50,6 +52,23 @@ def Register(request):
 
 
 
-
+""" 
 def Dashboard(request):
-  return render(request,'account/dashboard.html')
+  return render(request,'account/dashboard.html') """
+
+
+class Dashboard(ListView):
+  model = Ad
+  context_object_name = 'ads'
+
+ 
+  template_name = 'account/dashboard.html'
+  def get_queryset(self):
+      return  Ad.objects.filter(seller=self.request.user)
+    
+  
+
+    
+
+
+  
