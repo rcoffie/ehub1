@@ -65,6 +65,12 @@ class Dashboard(ListView):
   template_name = 'account/dashboard.html'
   def get_queryset(self):
       return  Ad.objects.filter(seller=self.request.user)
+
+
+
+class Dashboard_Detail(DetailView):
+  model = Ad 
+  template_name = 'account/d_detail.html'
     
   
 
