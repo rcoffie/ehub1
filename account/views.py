@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate 
 from django.views.generic import ListView, DeleteView, DetailView, UpdateView, CreateView
 from ad.models import *
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -71,6 +72,16 @@ class Dashboard(ListView):
 class Dashboard_Detail(DetailView):
   model = Ad 
   template_name = 'account/d_detail.html'
+
+
+
+
+class Dashboard_edit(UpdateView):
+  model = Ad 
+  fields  = ['title','location','region','category','condition','price','brand','negotiable','main_photo','photo_1','photo_2','photo_3','description']
+  template_name = 'account/d_update.html'
+  success_url = reverse_lazy('dashboard')
+
     
   
 

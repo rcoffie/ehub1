@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="page-holder">
+
+ 
+  <div class="container">
+    <!-- HERO SECTION-->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
+          <div class="col-lg-6">
+            <h1 class="h2 text-uppercase mb-0">Sell Something </h1>
+          </div>
+          <div class="col-lg-6 text-lg-right">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="cart.html">Cart</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-5">
+      <!-- BILLING ADDRESS-->
+   
+      {% if user.id == ad.seller.id %}
+
+      <h2 class="h5 text-uppercase mb-4">Edit Ad</h2>
+      <div class="row">
+        <div class="col-lg-8">
+          <form action="#" method='Post' enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ form|crispy }}
+
+         <button class='btn btn-info' type="submit"> Post </button>
+          </form>
+        </div>
+        <!-- ORDER SUMMARY-->
+        <div class="col-lg-4">
+          <div class="card border-0 rounded-0 p-lg-4 bg-light">
+            <div class="card-body">
+              <h5 class="text-uppercase mb-4">Your order</h5>
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">Red digital smartwatch</strong><span class="text-muted small">$250</span></li>
+                <li class="border-bottom my-2"></li>
+                <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">Gray Nike running shoes</strong><span class="text-muted small">$351</span></li>
+                <li class="border-bottom my-2"></li>
+                <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Total</strong><span>$601</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+     {% else %}
+
+     <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Sorry</strong> Page Not Available 
+    </div>
+    
+      {% endif %}
+    </section>
+  </div>
+  <footer class="bg-dark text-white">
+    <div class="container py-4">
+      <div class="row py-5">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h6 class="text-uppercase mb-3">Customer services</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer-link" href="#">Help &amp; Contact Us</a></li>
+            <li><a class="footer-link" href="#">Returns &amp; Refunds</a></li>
+            <li><a class="footer-link" href="#">Online Stores</a></li>
+            <li><a class="footer-link" href="#">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h6 class="text-uppercase mb-3">Company</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer-link" href="#">What We Do</a></li>
+            <li><a class="footer-link" href="#">Available Services</a></li>
+            <li><a class="footer-link" href="#">Latest Posts</a></li>
+            <li><a class="footer-link" href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-uppercase mb-3">Social media</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer-link" href="#">Twitter</a></li>
+            <li><a class="footer-link" href="#">Instagram</a></li>
+            <li><a class="footer-link" href="#">Tumblr</a></li>
+            <li><a class="footer-link" href="#">Pinterest</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-top pt-4" style="border-color: #1d1d1d !important">
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="small text-muted mb-0">&copy; 2020 All rights reserved.</p>
+          </div>
+          <div class="col-lg-6 text-lg-right">
+            <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor" href="https://bootstraptemple.com/p/bootstrap-ecommerce">Bootstrap Temple</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+
+{% endblock  %}

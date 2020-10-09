@@ -36,7 +36,7 @@
                   <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Product</strong></th>
                   <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Price</strong></th>
                   <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Quantity</strong></th>
-                  <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Total</strong></th>
+                  <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Edit</strong></th>
                   <th class="border-0" scope="col"> </th>
                 </tr>
               </thead>
@@ -62,9 +62,11 @@
                     </div>
                   </td>
                   <td class="align-middle border-0">
-                    <p class="mb-0 small">$250</p>
+                    <a class="reset-anchor" href="{% url 'd_edit' ad.id %}"><i class="fas fa-edit"></i></a>
                   </td>
-                  <td class="align-middle border-0"><a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+                  <td class="align-middle border-0">
+                    <a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a>
+                  </td>
                 </tr>
                 {% endfor %}
                 {% else %}
