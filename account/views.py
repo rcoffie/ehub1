@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate
 from django.views.generic import ListView, DeleteView, DetailView, UpdateView, CreateView
 from ad.models import *
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 
@@ -57,7 +59,7 @@ def Register(request):
 def Dashboard(request):
   return render(request,'account/dashboard.html') """
 
-
+@method_decorator(login_required, name='dispatch')
 class Dashboard(ListView):
   model = Ad
   context_object_name = 'ads'
@@ -68,14 +70,14 @@ class Dashboard(ListView):
       return  Ad.objects.filter(seller=self.request.user)
 
 
-
+@method_decorator(login_required, name='dispatch')
 class Dashboard_Detail(DetailView):
   model = Ad 
   template_name = 'account/d_detail.html'
 
 
 
-
+@method_decorator(login_required, name='dispatch')
 class Dashboard_edit(UpdateView):
   model = Ad 
   fields  = ['title','location','region','category','condition','price','brand','negotiable','main_photo','photo_1','photo_2','photo_3','description']
