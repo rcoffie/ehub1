@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.views.generic import ListView, DeleteView, DetailView, UpdateView, CreateView
 from . models import *
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
@@ -12,7 +14,7 @@ class Home(ListView):
 
 
 
-
+@method_decorator(login_required, name='dispatch')
 class CreateAd(CreateView):
   model = Ad 
   fields = ('title','location','region','category','condition','price','brand','negotiable','main_photo','photo_1','photo_2','photo_3','description')

@@ -7,6 +7,7 @@ from ad.models import *
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -83,6 +84,15 @@ class Dashboard_edit(UpdateView):
   fields  = ['title','location','region','category','condition','price','brand','negotiable','main_photo','photo_1','photo_2','photo_3','description']
   template_name = 'account/d_update.html'
   success_url = reverse_lazy('dashboard')
+
+
+
+
+
+
+def LogOut(request):
+  logout(request)
+  return redirect('home')
 
     
   
