@@ -21,9 +21,9 @@
       <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
     </header>
     <div class="row">
-      <div class="col-md-4 mb-4 mb-md-0"><a class="category-item" href="shop.html"><img class="img-fluid" src="{% static 'img/cat-img-1.jpg' %}" alt=""><strong class="category-item-title">Audio & MP3</strong></a></div>
-      <div class="col-md-4 mb-4 mb-md-0"><a class="category-item mb-4" href="shop.html"><img class="img-fluid" src="{% static 'img/cat-img-2.jpg' %}" alt=""><strong class="category-item-title">Mobile Phones</strong></a><a class="category-item" href="shop.html"><img class="img-fluid" src="{% static 'img/cat-img-3.jpg' %}" alt=""><strong class="category-item-title">Cameras & Camcorders </strong></a></div>
-      <div class="col-md-4"><a class="category-item" href="shop.html"><img class="img-fluid" src="{% static 'img/cat-img-4.jpg' %}" alt=""><strong class="category-item-title">Other Electronics</strong></a></div>
+      <div class="col-md-4 mb-4 mb-md-0"><a class="category-item" href="{% url 'audio' %}"><img class="img-fluid" src="{% static 'img/cat-img-1.jpg' %}" alt=""><strong class="category-item-title">Audio & MP3</strong></a></div>
+      <div class="col-md-4 mb-4 mb-md-0"><a class="category-item mb-4" href="{% url 'mobile' %}"><img class="img-fluid" src="{% static 'img/cat-img-2.jpg' %}" alt=""><strong class="category-item-title">Mobile Phones</strong></a><a class="category-item" href="{% url 'camera' %}"><img class="img-fluid" src="{% static 'img/cat-img-3.jpg' %}" alt=""><strong class="category-item-title">Cameras & Camcorders </strong></a></div>
+      <div class="col-md-4"><a class="category-item" href="{% url 'other' %}"><img class="img-fluid" src="{% static 'img/cat-img-4.jpg' %}" alt=""><strong class="category-item-title">Other Electronics</strong></a></div>
     </div>
   </section>
   <!-- TRENDING PRODUCTS-->

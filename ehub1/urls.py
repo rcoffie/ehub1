@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('page.urls')),
     path('ads/',include('ad.urls')),
-    path('account/',include('account.urls'))
+    path('account/',include('account.urls')),
+    path('adcat/',include('adcat.urls'))
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
