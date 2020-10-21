@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'page',
     'ad',
     'account',
-    'adcat'
+    'adcat',
+    'adash',
 ]
 
 
