@@ -19,9 +19,15 @@
         </ul>
         <ul class="navbar-nav ml-auto">    
           {% if user.is_authenticated %}
-          <li class="nav-item"><a class="nav-link" href="#"> <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart<small class="text-gray">{{ user.username }}</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"> <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart<small class="text-gray"> <b>{{ user.username }}</b> </small></a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"> <i class="fas fa-user-alt mr-1 text-gray"></i>Logout</a></li>
+
+          {% if user.is_superuser %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'dhome' %}"> <i class="fas fa-user-alt mr-1 text-gray"></i>Admin Dasboard</a></li>
+          {% endif  %}
+
+         
 
           {% else %}
 

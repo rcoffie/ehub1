@@ -21,6 +21,8 @@ def Login(request):
       auth.login(request,user)
       messages.success(request, 'you are now loggined in ')
       return redirect('dashboard')
+    else:
+      messages.error(request, 'Username or Password incorret')
   return render(request,'account/login.html')
 
 

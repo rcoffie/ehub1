@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.views.generic import ListView, DeleteView, DetailView, UpdateView, CreateView
 from ad.models import *
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -28,6 +29,15 @@ def Index(request):
    return render(request,'adash/index.html',context)
   else:
     return redirect('home')
+
+
+
+
+class Edit(UpdateView):
+  model  = Ad 
+  fields = '__all__'
+  template_name = 'adash/edit.html'
+  success_url = reverse_lazy('dhome')
 
  
 
