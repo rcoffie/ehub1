@@ -35,9 +35,13 @@ def Index(request):
 
 
 def Detail(request,ad_id):
-  ad = get_object_or_404(Ad,pk=ad_id)
-  context = {'ad':ad,}
-  return render(request,'admin_dash/admin_detail.html',context)
+  user = User
+  if user.is_staff == True:
+     ad = get_object_or_404(Ad,pk=ad_id)
+     context = {'ad':ad,}
+     return render(request,'admin_dash/admin_detail.html',context)
+  else:
+    return redirect('home')
 
 
 
