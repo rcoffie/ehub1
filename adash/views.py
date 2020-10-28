@@ -3,6 +3,7 @@ from django.views.generic import ListView, DeleteView, DetailView, UpdateView, C
 from ad.models import *
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 # Create your views here.
@@ -52,7 +53,19 @@ def Detail(request,ad_id):
 
 
 
+""" 
+def delete(request,pk):
+  order = Order.objects.get(id=pk)
+  order.delete()
+  return redirect('/')
+ """
 
+
+def Admin_Delete(requests,pk):
+  ad = Ad.objects.get(id=pk)
+  ad.delete()
+  #messages.success(request, 'ad deleted succesffully')
+  return redirect('dhome')
 
 class Edit(UpdateView):
   model  = Ad 

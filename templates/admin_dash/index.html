@@ -65,7 +65,7 @@
                     <a class="reset-anchor" href="{% url 'dedit' ad.id %}"><i class="fas fa-edit"></i></a>
                   </td>
                   <td class="align-middle border-0">
-                    <a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a>
+                    <a class="reset-anchor" href="{% url 'admin_delete' ad.id %}"  onclick="return confirm('Are you sure you want to delete this Add?');"   ><i class="fas fa-trash-alt small text-muted"></i></a>
                   </td>
                 </tr>
                 {% endfor %}
