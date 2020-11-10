@@ -8,7 +8,8 @@ from django.utils.decorators import method_decorator
 
 # Create your views here.
 class Home(ListView):
-  model = Ad
+ # model = Ad
+  queryset = Ad.objects.filter(status='publish')
   template_name = 'ads/ads.html'
   context_object_name = 'ads'
 

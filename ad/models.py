@@ -5,6 +5,12 @@ from datetime import datetime
 
 # Create your models here.
 
+
+class PublishedAds(models.Manager):
+
+  def get_queryset(self):
+    return super().get_queryset().filter(status='pulish')
+    
 class Ad(models.Model):
 
 
@@ -81,6 +87,8 @@ class Ad(models.Model):
   photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d')
   description = models.TextField()
   date_posted = models.DateField(default=datetime.now)
+ # objects = PublishedAds()
+
 
   class Meta:
     ordering = ['-date_posted']
