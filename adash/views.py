@@ -35,6 +35,20 @@ def Index(request):
 
 
 
+
+def Pending(request):
+  ads = Ad.objects.filter(status='Pending')
+  user = User
+  user = request.user 
+  context = {'ads':ads}
+  if user.is_staff == True:
+   return render(request,'admin_dash/pending.html',context)
+  else:
+      return redirect('home')
+
+
+
+
 def Detail(request,ad_id):
   user = User
   if user.is_staff == True:
