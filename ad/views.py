@@ -35,3 +35,18 @@ class CreateAd(CreateView):
 class AdDetail(DetailView):
     model = Ad
     template_name='ads/detial.html'
+
+
+
+
+def Search(request):
+
+  ads = Ad.objects.all()
+  if 'keyword' in request.GET:
+    keyword = request.GET['keyword']
+    if keyword:
+      ads = ads.filter(description__icontains=keyword,)
+
+  context = {'ads':ads,}
+
+  return render(request,'ads/ad_search.html',context)
