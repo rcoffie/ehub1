@@ -4,6 +4,7 @@ from . models import *
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.db.models import Q
 
 
 # Create your views here.
@@ -39,7 +40,7 @@ class AdDetail(DetailView):
 
 
 
-def Search(request):
+""" def Search(request):
 
   ads = Ad.objects.all()
   if 'keyword' in request.GET:
@@ -50,3 +51,28 @@ def Search(request):
   context = {'ads':ads,}
 
   return render(request,'ads/ad_search.html',context)
+ """
+
+
+def Search(request):
+
+    ads = Ad.objects.all()
+    query = request.GET.get('keyword')
+    if query:
+      ads = ads.filter(status__icontains='publish').filter(
+        Q(description__icontains=query) |
+        Q(title__icontains=query) |
+        Q(region__icontains=query) |
+        Q(category__icontains=query) |
+        Q(condition__icontains=query) |
+        Q(price__icontains=query) |
+        Q(brand__icontains=query) 
+      
+
+        
+      )
+    context = {'ads':ads}
+    return render(request,'ads/ad_search.html',context)
+
+
+  
